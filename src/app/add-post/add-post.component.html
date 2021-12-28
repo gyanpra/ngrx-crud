@@ -1,0 +1,17 @@
+<div class="col-md-12">
+    <form [formGroup]="postForm" (ngSubmit)="addPost()">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" formControlName="title" placeholder="Enter Title">
+          <div>{{showTitleErrors()}}</div>
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" formControlName="description" placeholder="Description">
+          <div>{{showDescriptionErrors()}}</div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" [disabled]="!postForm.valid">Submit</button>
+      </form>
+</div>
