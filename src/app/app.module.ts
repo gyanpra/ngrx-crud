@@ -16,6 +16,9 @@ import { appReducer } from './appstate/app.state';
 import { PostComponent } from './post/post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { EditPostComponent } from './edit-post/edit-post.component';
+import { AuthModule } from './auth/auth.module';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './auth/authstate/auth.effects';
 
 
 
@@ -30,12 +33,16 @@ import { EditPostComponent } from './edit-post/edit-post.component';
     HomeComponent,
     PostComponent,
     AddPostComponent,
-    EditPostComponent
+    EditPostComponent,
+    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    AuthModule,
+    EffectsModule.forRoot([AuthEffects]),
     ReactiveFormsModule,
     StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({
